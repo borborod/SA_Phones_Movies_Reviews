@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<title>Анализ тональности отзыва на смартфон</title>
+</head>
+
+
+<body>
+<h1>Анализ тональности отзыва на смартфон</h1>
+	<div class="content">
+		<div class="container">
+
+			<div class="form__group">
+				<label for="name" class="form__label">Ваш отзыв (поддерживается только русский язык)</label>
+				<form action="{{ url_for('phone_page') }}" method=post>
+					<dd><textarea class="form__input" type="text" name=text rows=5 cols=40>{{ text }}</textarea>
+						<br>
+						<dl>
+							<!--<dd><input type=submit value="Тональность"> -->
+							<div>
+								<input type=submit value="Тональность" class="button" id="button-3"
+									style="color:#FFFAFA;background:#264653">
+								<div id="circle"></div>
+							</div>
+						</dl>
+						<label for="name" class="form__label">Тональность отзыва:</label>
+						<label for="name" name=prediction_message class="form__label">{{ prediction_message }}</label>
+				</form>
+			</div>
+			<div>
+				<form action="{{ url_for('index_page') }}" method=post>
+
+					<div class="content">
+
+						<div class="container">
+							<h2 class="mb-5">Доступная модель</h2>
+
+							<div class="table-responsive custom-table-responsive">
+
+								<table class="table custom-table">
+									<thead>
+
+										<tr>
+											<th scope="col">
+
+											</th>
+
+											<th scope="col"><span style="color:#00CC00">Модель (Model)</span></th>
+											<th scope="col"><span style="color:#00CC00">Занимаемое место на диске</span></th>
+											<th scope="col"><span style="color:#00CC00">Язык распознавания (Language)</span></th>
+
+										</tr>
+
+									</thead>
+									<tbody>
+										<tr scope="row">
+											<th scope="col">
+												<label class="control control--checkbox">
+													<input name="model_type" type="radio" value="phone_clf" checked>
+													<div class="control__indicator"></div>
+												</label>
+											</th>
+
+											<td>
+											Тональность отзывов на смартфоны
+											</td>
+											<td><span style="color:#00CC00">менее 50 МБ</span></td>
+											<td><span style="color:#00CC00">Русский</span></td>
+										</tr>
+										<tr scope="row">
+											<th scope="col">
+												<label class="control control--checkbox">
+													<input name="model_type" type="radio" value="movies_clf" >
+													<div class="control__indicator"></div>
+												</label>
+											</th>
+
+											<td>
+											Movies rewiews sentiment
+											</td>
+											<td><span style="color:#00CC00">более 50 МБ</span></td>
+											<td><span style="color:#00CC00">English</span></td>
+											</tr>
+											<tr class="spacer">
+												<td colspan="100"></td>
+											</tr>
+											<tr class="spacer">
+												<td colspan="100"></td>
+											</tr>
+
+
+									</tbody>
+								</table>
+							</div>
+
+
+							<div> 
+								<input type=submit value="Выбрать модель" class="button" id="button-3" style="color:#FFFAFA;background:#264653">
+								<div id="circle"></div>
+							</div>
+
+						</div>
+
+					</div>
+
+
+					<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+					<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
